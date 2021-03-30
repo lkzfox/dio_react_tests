@@ -5,9 +5,7 @@ import Balls from './Balls'
 
 //mocks
 import { profile } from '../../mocks/profile.json';
-import profileSuccess from '../../mocks/profileSuccess.json';
 import esferas from '../../mocks/esferas.json';
-import esferasSuccess from '../../mocks/esferasSuccess.json';
 
 it('Should render all dragon balls', () => {
   const { container } = render(<Balls balls={esferas.balls} profile={profile} />)
@@ -25,7 +23,7 @@ it('Should show not found balls label and button', () => {
 })
 
 it('Should open modal to validate', () => {
-  const { debug, getAllByText, getByText, container } = render(<Balls balls={esferas.balls} profile={profile} />)
+  const { getAllByText, getByText, container } = render(<Balls balls={esferas.balls} profile={profile} />)
   const validateButton = getAllByText('encontrei')
 
   fireEvent.click(validateButton[0])
@@ -36,7 +34,7 @@ it('Should open modal to validate', () => {
 })
 
 it('Should filter', async () => {
-  const { debug, getByTestId, getByText, getAllByText, container } = render(<Balls balls={esferas.balls} profile={profile} />)
+  const { getByTestId, getByText, getAllByText } = render(<Balls balls={esferas.balls} profile={profile} />)
   const filter = getByTestId('filter')
   fireEvent.click(filter)
 

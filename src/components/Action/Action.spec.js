@@ -8,7 +8,7 @@ import { profile } from '../../mocks/profile.json';
 import profileSuccess from '../../mocks/profileSuccess.json';
 
 it('Should render Action', () => {
-  const { container, debug, getByText } = render(<Action balls={profile.balls} />)
+  const { container, getByText } = render(<Action balls={profile.balls} />)
   const button = getByText('Invocar').closest('button')
 
   expect(getByText('Invocar shenlong')).toBeInTheDocument()
@@ -17,7 +17,7 @@ it('Should render Action', () => {
 })
 
 it('Should open modal if user dont have all dragon balls', () => {
-  const { debug, getByText } = render(<Action balls={profile.balls} />)
+  const { getByText } = render(<Action balls={profile.balls} />)
   const button = getByText('Invocar').closest('button')
 
   fireEvent.click(button)
@@ -30,7 +30,7 @@ it('Should open modal if user dont have all dragon balls', () => {
 })
 
 it('Should show shenlong', () => {
-  const { container, debug, getByText, getByTestId } = render(<Action balls={profileSuccess.profile.balls} />)
+  const { container, getByText, getByTestId } = render(<Action balls={profileSuccess.profile.balls} />)
   const button = getByText('Invocar').closest('button')
 
   fireEvent.click(button)
